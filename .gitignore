@@ -1,1 +1,14 @@
-/bin/
+.DS_Store
+.history
+.cache
+.cache-tests
+.cache-main
+.classpath
+.project
+.gwt
+.settings
+gwt-unitCache/
+classes/
+test-classes/
+target/
+bin/
