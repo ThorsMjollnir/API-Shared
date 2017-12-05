@@ -16,12 +16,21 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-name := "api-shared"
 
-organization := "uk.ac.ncl.openlab.uk.ac.ncl.openlab.intake24.api.client.api.client.test"
+lazy val apiShared = crossProject.in(file(".")).settings(
+  name := "api-shared",
+  organization := "uk.ac.ncl.openlab.intake24",
+  version := "1.0.0-SNAPSHOT",
+  description := "Intake24 API shared Scala data types",
+  scalaVersion := "2.12.4"
+)
 
-version := "1.0.0-SNAPSHOT"
+lazy val apiSharedJS = apiShared.js
+lazy val apiSharedJVM = apiShared.jvm
 
-description := "Intake24 API shared Scala data types"
+lazy val root = project.in(file(".")).aggregate(apiSharedJS, apiSharedJVM).settings(
 
-scalaVersion := "2.12.4"
+  publish := {},
+  publishLocal := {}
+)
+

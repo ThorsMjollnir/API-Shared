@@ -1,12 +1,22 @@
 package uk.ac.ncl.openlab.intake24.api.shared
-/*
-import uk.ac.ncl.openlab.uk.ac.ncl.openlab.intake24.api.client.api.client.test.services.systemdb.admin._
+
+import java.time.LocalDate
+
+
+
+case class UserProfile(name: Option[String], email: Option[String], phone: Option[String], emailNotifications: Boolean, smsNotifications: Boolean)
+
+case class CreateUserRequest(profile: UserProfile, roles: Set[String], customFields: Map[String, String], password: String)
+
+case class UserProfileWithPhysicalData(userProfile: UserProfile,
+                                       physicalData: Option[UserPhysicalDataUpdate])
+
 
 case class DeleteUsersRequest(userIds: Seq[Long])
 
 case class DeleteSurveyUsersRequest(userNames: Seq[String])
 
-case class CreateUserRequest(userInfo: NewUserProfile, password: String)
+
 
 case class PatchUserPasswordRequest(password: String)
 
@@ -23,4 +33,10 @@ case class CreateRespondentsWithPhysicalDataResponse(userKeys: Seq[NewRespondent
 case class PasswordResetRequest(email: String, recaptchaResponse: String)
 
 case class PasswordResetConfirmation(token: String, newPassword: String)
-*/
+
+case class NewRespondentWithPhysicalData(externalId: String, name: Option[String], email: Option[String],
+                                         phone: Option[String], sex: Option[String], birthdate: Option[LocalDate],
+                                         weight: Option[Double], weightTarget: Option[String], height: Option[Double])
+
+case class NewRespondentIds(userId: Long, externalId: String, urlAuthToken: String)
+
