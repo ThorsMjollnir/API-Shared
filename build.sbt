@@ -16,7 +16,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-
 lazy val apiShared = crossProject.in(file(".")).settings(
   name := "api-shared",
   organization := "uk.ac.ncl.openlab.intake24",
@@ -27,10 +26,4 @@ lazy val apiShared = crossProject.in(file(".")).settings(
 
 lazy val apiSharedJS = apiShared.js
 lazy val apiSharedJVM = apiShared.jvm
-
-lazy val root = project.in(file(".")).aggregate(apiSharedJS, apiSharedJVM).settings(
-
-  publish := {},
-  publishLocal := {}
-)
 

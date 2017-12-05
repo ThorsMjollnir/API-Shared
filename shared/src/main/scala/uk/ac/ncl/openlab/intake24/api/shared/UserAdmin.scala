@@ -2,11 +2,11 @@ package uk.ac.ncl.openlab.intake24.api.shared
 
 import java.time.LocalDate
 
-
+case class NewUserProfile(name: Option[String], email: Option[String], phone: Option[String], roles: Set[String], customFields: Map[String, String])
 
 case class UserProfile(name: Option[String], email: Option[String], phone: Option[String], emailNotifications: Boolean, smsNotifications: Boolean)
 
-case class CreateUserRequest(profile: UserProfile, roles: Set[String], customFields: Map[String, String], password: String)
+case class CreateUserRequest(userInfo: NewUserProfile, password: String)
 
 case class UserProfileWithPhysicalData(userProfile: UserProfile,
                                        physicalData: Option[UserPhysicalDataUpdate])
