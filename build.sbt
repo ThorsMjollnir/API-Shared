@@ -18,4 +18,10 @@ limitations under the License.
 
 name := "api-shared"
 
+organization := "uk.ac.ncl.openlab.uk.ac.ncl.openlab.intake24.api.client.api.client.test"
+
+version := "1.0.0-SNAPSHOT"
+
 description := "Intake24 API shared Scala data types"
+
+scalaVersion := "2.12.4"

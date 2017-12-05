@@ -1,6 +1,6 @@
 package uk.ac.ncl.openlab.intake24.api.shared
-
-import uk.ac.ncl.openlab.intake24.services.systemdb.admin._
+/*
+import uk.ac.ncl.openlab.uk.ac.ncl.openlab.intake24.api.client.api.client.test.services.systemdb.admin._
 
 case class DeleteUsersRequest(userIds: Seq[Long])
 
@@ -23,3 +23,4 @@ case class CreateRespondentsWithPhysicalDataResponse(userKeys: Seq[NewRespondent
 case class PasswordResetRequest(email: String, recaptchaResponse: String)
 
 case class PasswordResetConfirmation(token: String, newPassword: String)
+*/
