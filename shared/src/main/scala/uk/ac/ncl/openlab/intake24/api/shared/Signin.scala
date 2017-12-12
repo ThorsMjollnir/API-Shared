@@ -1,4 +1,4 @@
-package uk.ac.ncl.openlab.intake24.api.shared
+package uk.ac.ncl.openlab.intake24.api.data
 
 case class EmailCredentials(email: String, password: String)
 
