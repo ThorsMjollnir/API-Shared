@@ -6,6 +6,8 @@ object InheritableAttributes {
   val reasonableAmountDefault = 1000
 }
 
+case class LookupResult(foods: Seq[UserFoodHeader], categories: Seq[UserCategoryHeader])
+
 case class InheritableAttributes(readyMealOption: Option[Boolean], sameAsBeforeOption: Option[Boolean], reasonableAmount: Option[Int])
 
 case class PortionSizeMethodParameter(name: String, value: String)
