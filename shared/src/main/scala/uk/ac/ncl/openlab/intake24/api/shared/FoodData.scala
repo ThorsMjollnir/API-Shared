@@ -34,3 +34,9 @@ case class GuideHeader(id: String, description: String)
 case class GuideImage(id: String, description: String, weights: Seq[GuideImageWeightRecord])
 
 case class GuideImageWeightRecord(description: String, objectId: Int, weight: Double)
+
+case class PortionSizeMethodForSurvey(method: String, description: String, imageUrl: String, useForRecipes: Boolean, parameters: Map[String, String])
+
+case class FoodDataForSurvey(code: String, localDescription: String, readyMealOption: Boolean, sameAsBeforeOption: Boolean,
+                             caloriesPer100g: Double, portionSizeMethods: Seq[PortionSizeMethodForSurvey], associatedFoods: Seq[AssociatedFood],
+                             brands: Seq[String], categories: Set[String])
