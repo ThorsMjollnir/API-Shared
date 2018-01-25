@@ -25,7 +25,7 @@ case class UserCategoryHeader(code: String, localDescription: String)
 case class UserCategoryContents(foods: Seq[UserFoodHeader], subcategories: Seq[UserCategoryHeader])
 
 
-case class AsServedHeader(id: String, description: String)
+case class AsServedHeader(id: Long, description: String)
 
 
 
