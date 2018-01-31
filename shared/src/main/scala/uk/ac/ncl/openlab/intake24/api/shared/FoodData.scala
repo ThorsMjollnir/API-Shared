@@ -12,7 +12,7 @@ case class InheritableAttributes(readyMealOption: Option[Boolean], sameAsBeforeO
 
 case class PortionSizeMethodParameter(name: String, value: String)
 
-case class PortionSizeMethod(method: String, description: String, imageUrl: String, useForRecipes: Boolean, parameters: Seq[PortionSizeMethodParameter])
+case class PortionSizeMethod(method: String, description: String, imageUrl: String, useForRecipes: Boolean, conversionFactor: Double, parameters: Seq[PortionSizeMethodParameter])
 
 case class AssociatedFood(foodOrCategoryCode: Either[String, String], promptText: String, linkAsMain: Boolean, genericName: String)
 
@@ -35,7 +35,7 @@ case class GuideImage(id: String, description: String, weights: Seq[GuideImageWe
 
 case class GuideImageWeightRecord(description: String, objectId: Int, weight: Double)
 
-case class PortionSizeMethodForSurvey(method: String, description: String, imageUrl: String, useForRecipes: Boolean, parameters: Map[String, String])
+case class PortionSizeMethodForSurvey(method: String, description: String, imageUrl: String, useForRecipes: Boolean, conversionFactor: Double, parameters: Map[String, String])
 
 case class FoodDataForSurvey(code: String, localDescription: String, readyMealOption: Boolean, sameAsBeforeOption: Boolean,
                              caloriesPer100g: Double, portionSizeMethods: Seq[PortionSizeMethodForSurvey], associatedFoods: Seq[AssociatedFood],
