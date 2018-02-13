@@ -24,7 +24,7 @@ case class NewRespondent(userName: String, password: String, name: Option[String
 
 case class CreateOrUpdateSurveyUsersRequest(users: Seq[NewRespondent])
 
-case class UserInfoWithSurveyUserName(id: Long, userName: String, name: Option[String], email: Option[String], phone: Option[String], emailNotifications: Boolean, smsNotifications: Boolean, roles: Set[String], customFields: Map[String, String])
+case class UserInfoWithSurveyUserName(id: Long, userName: String, authUrl: String, name: Option[String], email: Option[String], phone: Option[String], emailNotifications: Boolean, smsNotifications: Boolean, roles: Set[String], customFields: Map[String, String])
 
 case class CreateRespondentsWithPhysicalDataRequest(users: Seq[NewRespondentWithPhysicalData])
 
