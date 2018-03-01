@@ -8,7 +8,7 @@ object InheritableAttributes {
 
 case class LookupResult(foods: Seq[UserFoodHeader], categories: Seq[UserCategoryHeader])
 
-case class InheritableAttributes(readyMealOption: Option[Boolean], sameAsBeforeOption: Option[Boolean], reasonableAmount: Option[Int])
+case class InheritableAttributes(readyMealOption: Option[Boolean], sameAsBeforeOption: Option[Boolean], reasonableAmount: Option[Int], useInRecipes: Option[Int])
 
 case class PortionSizeMethodParameter(name: String, value: String)
 
