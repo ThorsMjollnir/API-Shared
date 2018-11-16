@@ -29,7 +29,7 @@ case class AsServedHeader(id: String, description: String)
 
 
 
-case class GuideHeader(id: String, description: String, path: String)
+case class GuideHeader(id: String, description: String, imageMapId: String)
 
 case class GuideImage(id: String, description: String, weights: Seq[GuideImageWeightRecord])
 
