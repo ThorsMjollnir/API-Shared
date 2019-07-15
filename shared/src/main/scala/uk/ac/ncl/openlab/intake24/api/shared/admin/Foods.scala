@@ -4,7 +4,7 @@ import java.util.UUID
 
 import uk.ac.ncl.openlab.intake24.api.data._
 
-case class FoodHeader(code: String, englishDescription: String, localDescription: Option[String], excluded: Boolean)
+case class FoodHeader(code: String, englishDescription: String, localDescription: Option[String])
 
 case class AssociatedFoodWithHeader(foodOrCategoryHeader: Either[FoodHeader, CategoryHeader], promptText: String, linkAsMain: Boolean, genericName: String) {
   def toAssociatedFood = {
@@ -21,24 +21,24 @@ case class MainFoodRecordUpdate(baseVersion: UUID, code: String, englishDescript
 
 
 case class FoodRecord(main: MainFoodRecord, local: LocalFoodRecord) {
-  def allowedInLocale(locale: String) = (main.localeRestrictions.isEmpty || main.localeRestrictions.contains(locale)) && !local.doNotUse
+  def allowedInLocale(locale: String) = main.localeRestrictions.contains(locale)
 }
 
-case class LocalFoodRecord(version: Option[UUID], localDescription: Option[String], doNotUse: Boolean,
+case class LocalFoodRecord(version: Option[UUID], localDescription: Option[String],
                            nutrientTableCodes: Map[String, String], portionSize: Seq[PortionSizeMethod], associatedFoods: Seq[AssociatedFoodWithHeader],
                            brandNames: Seq[String]) {
-  def toUpdate = LocalFoodRecordUpdate(version, localDescription, doNotUse, nutrientTableCodes, portionSize, associatedFoods.map(_.toAssociatedFood), brandNames)
+  def toUpdate = LocalFoodRecordUpdate(version, localDescription, nutrientTableCodes, portionSize, associatedFoods.map(_.toAssociatedFood), brandNames)
 }
 
 case class NewMainFoodRecord(code: String, englishDescription: String, groupCode: Int, attributes: InheritableAttributes, parentCategories: Seq[String], localeRestrictions: Seq[String]) {
-  def toHeader = FoodHeader(code, englishDescription, None, false)
+  def toHeader = FoodHeader(code, englishDescription, None)
 }
 
 case class NewLocalMainFoodRecord(code: String, englishDescription: String, groupCode: Int, attributes: InheritableAttributes, parentCategories: Seq[String])
 
 case class NewFoodAutoCode(englishDescription: String, groupCode: Int, attributes: InheritableAttributes)
 
-case class LocalFoodRecordUpdate(baseVersion: Option[UUID], localDescription: Option[String], doNotUse: Boolean,
+case class LocalFoodRecordUpdate(baseVersion: Option[UUID], localDescription: Option[String],
                                  nutrientTableCodes: Map[String, String], portionSize: Seq[PortionSizeMethod], associatedFoods: Seq[AssociatedFood],
                                  brandNames: Seq[String])
 
